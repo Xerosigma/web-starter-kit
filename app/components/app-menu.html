@@ -1,0 +1,27 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/core-icons/core-icons.html">
+<link rel="import" href="../bower_components/core-menu/core-menu.html">
+<link rel="import" href="../bower_components/core-menu/core-submenu.html">
+<link rel="import" href="../bower_components/core-item/core-item.html">
+
+<polymer-element name="app-menu">
+  <template>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+	<style>
+	  :host core-item {
+		opacity: 0.6;
+	  }
+	  :host(:hover) core-item {
+	    opacity: 0.8;
+		color: #e81d62;
+	  }
+	</style>
+    <core-menu selected="0">
+	  <core-item icon="settings-input-component" label="Web Components"></core-item>
+	  <core-item icon="polymer" label="Polymer Elements"></core-item>
+    </core-menu>
+</template>
+<script>
+  Polymer({});
+</script>
+</polymer-element>

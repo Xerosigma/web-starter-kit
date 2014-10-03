@@ -1,0 +1,9 @@
+{
+  "name": "web-starter-kit",
+  "version": "0.0.0",
+  "dependencies": {
+    "polymer": "Polymer/polymer#~0.4.1",
+    "paper-elements": "Polymer/paper-elements#~0.4.1"
+  },
+  "appPath": "app"
+}
