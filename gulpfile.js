@@ -26,6 +26,7 @@ var del = require('del');
 var runSequence = require('run-sequence');
 var browserSync = require('browser-sync');
 var pagespeed = require('psi');
+var vulcanize = require('gulp-vulcanize');
 var reload = browserSync.reload;
 
 var AUTOPREFIXER_BROWSERS = [
@@ -77,6 +78,21 @@ gulp.task('fonts', function () {
   return gulp.src(['app/fonts/**'])
     .pipe(gulp.dest('dist/fonts'))
     .pipe($.size({title: 'fonts'}));
+});
+
+// Copy Components.
+gulp.task('components', function () {
+  return gulp.src('app/components/**/*', {
+    dot: true
+  }).pipe(gulp.dest('dist/components'))
+    .pipe($.size({title: 'components'}));
+});
+
+// Vulcanize Polymer
+gulp.task('vulcanize', function () {
+  return gulp.src('app/index.html')
+    .pipe(vulcanize({dest: 'dist', inline: true, csp: true}))
+    .pipe(gulp.dest('dist'));
 });
 
 // Compile and Automatically Prefix Stylesheets
@@ -157,6 +173,7 @@ gulp.task('serve', ['styles'], function () {
   gulp.watch(['app/styles/**/*.{scss,css}'], ['styles', reload]);
   gulp.watch(['app/scripts/**/*.js'], ['jshint']);
   gulp.watch(['app/images/**/*'], reload);
+  gulp.watch(['app/components/*'], reload);
 });
 
 // Build and serve the output from the dist build
@@ -174,7 +191,7 @@ gulp.task('serve:dist', ['default'], function () {
 
 // Build Production Files, the Default Task
 gulp.task('default', ['clean'], function (cb) {
-  runSequence('styles', ['jshint', 'html', 'images', 'fonts', 'copy'], cb);
+  runSequence('styles', ['jshint', 'html', 'images', 'fonts', 'components', 'vulcanize', 'copy'], cb);
 });
 
 // Run PageSpeed Insights
