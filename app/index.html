@@ -20,6 +20,11 @@
     <!-- Tile icon for Win8 (144x144 + tile color) -->
     <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
     <meta name="msapplication-TileColor" content="#3372DF">
+		
+	<!-- Polyfill Web Components support for older browsers -->
+	<script src="bower_components/platform/platform.js"></script>
+	<link rel="import" href="bower_components/paper-elements/paper-elements.html">
+	<link rel="import" href="components/app-menu.html">
 
     <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
     <!--
@@ -53,8 +58,12 @@
     <main>
       <h1 id="hello">Hello!</h1>
       <p>Welcome to Web Starter Kit.</p>
+	  
+	  <app-menu></app-menu>
+	  
+	  <paper-checkbox label="Material Design" id="paper_checkbox"></paper-checkbox>
 
-      <h2 id="get-started">Get Started.</h2>
+      <h3 id="get-started">Get Started.</h3>
       <p>Read how to <a href="http://developers.google.com/web/starter-kit">Get Started</a> or check out the <a href="styleguide.html">Style Guide</a>.</p>
     </main>
 
