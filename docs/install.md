@@ -36,6 +36,13 @@ If Sass is installed it should return a version number at or above 3.3.x.
 If you don't see any errors, proceed to check for [gulp](#gulp).
 If you need to install Sass, see the command-line instructions on the [Sass installation](http://sass-lang.com/install) page.
 
+### Bower
+
+Bring up a terminal and type `bower --version`.
+If Bower is installed it should return a version number at or above 1.3.x.
+If you need to install Bower, see the command-line instructions on the [Bower installation](http://bower.io/#install-bower) page.
+You will need to run `bower install` via command line in the `/app` directory before executing any gulp commands.
+
 ### Gulp
 
 Bring up a terminal and type `gulp --version`.
